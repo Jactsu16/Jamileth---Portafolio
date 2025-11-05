@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jamileth Jackelinne Guerra Aguilar - Buyer Persona</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-100: #F2F6FF;
+            --primary-200: #B6D0FF;
+            --primary-300: #79B1FF;
+            --primary-400: #3C98FE;
+            --primary-500: #0087FC;
+            --primary-600: #0076C7;
+            --primary-700: #005E91;
+            --primary-800: #00415C;
+            --primary-900: #001D26;
+            
+            --accent1-100: #FFF2F2;
+            --accent1-200: #FEC0C0;
+            --accent1-300: #F68B8B;
+            --accent1-400: #E05353;
+            --accent1-500: #C12D2D;
+            
+            --accent2-100: #FFFBEA;
+            --accent2-200: #FFF1B8;
+            --accent2-300: #FFE47E;
+            --accent2-400: #FAD94D;
+            --accent2-500: #F5D547;
+            
+            --neutral-50: #FFFFFF;
+            --neutral-100: #FAFBFC;
+            --neutral-200: #EAEDF0;
+            --neutral-300: #DBDFE3;
+            --neutral-600: #959DA1;
+            --neutral-700: #6E7578;
+            --neutral-800: #484D4F;
+            --neutral-900: #222626;
+        }
+
+        * { font-weight: 333; }
+        body { font-family: 'Inter', sans-serif; background: var(--primary-50); }
+        .font-name { font-family: 'Inter', sans-serif; font-weight: 700; letter-spacing: -0.5px; }
+        .font-quote { font-family: 'Playfair Display', serif; font-weight: 400; font-style: italic; }
+
+        .header-sticky {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: white;
+            border-bottom: 1px solid var(--primary-100);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .card {
+            background: white;
+            border: 1px solid var(--primary-100);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: var(--primary-300);
+            box-shadow: 0 4px 12px rgba(0, 135, 252, 0.08);
+        }
+
+        .stat-badge {
+            background: var(--primary-500);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 700;
+            display: inline-block;
+        }
+
+        .profile-image {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            object-fit: cover;
+        }
+
+        .bar-fill {
+            height: 4px;
+            background: var(--primary-600);
+            border-radius: 999px;
+            transition: width 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .competencia-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--primary-100);
+        }
+
+        .competencia-row:last-child {
+            border-bottom: none;
+        }
+
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-in {
+            animation: slideInUp 0.6s ease-out forwards;
+        }
+
+        html, body {
+            height: 100%;
+            overflow-y: hidden;
+        }
+
+        main {
+            height: 100vh;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        main::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        main::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        main::-webkit-scrollbar-thumb {
+            background: var(--primary-300);
+            border-radius: 3px;
+        }
+
+        main::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-500);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header-sticky">
+        <div class="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
+            <div>
+                <h1 class="font-name text-2xl font-bold" style="color: var(--primary-700);">Jamileth Jackelinne</h1>
+                <p class="text-xs font-semibold" style="color: var(--primary-500);">BUYER PERSONA</p>
+            </div>
+            <nav class="flex gap-6">
+                <a href="portfolio.html" class="text-sm font-semibold transition hover:opacity-70" style="color: var(--primary-700);">PORTAFOLIO</a>
+                <a href="chatbot.html" class="text-sm font-semibold transition hover:opacity-70" style="color: var(--primary-700);">CHATBOT</a>
+                <a href="panel/index.html" class="text-sm font-semibold transition hover:opacity-70" style="color: var(--accent1-500);">PANEL</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-6 py-6">
+        <div style="display: grid; grid-template-columns: 1.1fr 1fr; gap: 20px; grid-template-rows: auto auto;">
+            
+            <!-- Perfil Card (Left Top) -->
+            <div class="card" style="padding: 24px; position: relative;">
+                <span class="stat-badge" style="margin-bottom: 12px; display: block; width: fit-content;">PERFIL</span>
+                
+                <h2 class="font-name text-4xl leading-tight mb-1" style="color: var(--primary-700);">
+                    Jamileth<br>Jackelinne
+                </h2>
+                <h3 class="font-name text-3xl leading-tight mb-4" style="color: var(--primary-600);">
+                    Guerra Aguilar
+                </h3>
+                
+                <p class="text-sm font-semibold mb-6" style="color: var(--primary-700);">
+                    Estratega Publicitaria & AI Hybrid
+                </p>
+
+                <!-- Info Grid -->
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px;">
+                    <div style="padding: 8px; background: var(--primary-50); border-radius: 8px;">
+                        <p class="text-xs font-semibold" style="color: var(--primary-600); margin-bottom: 2px;">CÉDULA</p>
+                        <p class="text-xs font-semibold" style="color: var(--primary-900);">8-1008-914</p>
+                    </div>
+                    <div style="padding: 8px; background: var(--primary-50); border-radius: 8px;">
+                        <p class="text-xs font-semibold" style="color: var(--primary-600); margin-bottom: 2px;">EDAD</p>
+                        <p class="text-xs font-semibold" style="color: var(--primary-900);">21 años</p>
+                    </div>
+                    <div style="padding: 8px; background: var(--primary-50); border-radius: 8px;">
+                        <p class="text-xs font-semibold" style="color: var(--primary-600); margin-bottom: 2px;">ESTADO</p>
+                        <p class="text-xs font-semibold" style="color: var(--primary-900);">Soltera</p>
+                    </div>
+                    <div style="padding: 8px; background: var(--primary-50); border-radius: 8px;">
+                        <p class="text-xs font-semibold" style="color: var(--primary-600); margin-bottom: 2px;">UBICACIÓN</p>
+                        <p class="text-xs font-semibold" style="color: var(--primary-900);">Villa Daniela</p>
+                    </div>
+                </div>
+
+                <!-- Contacto -->
+                <div style="border-top: 1px solid var(--primary-100); padding-top: 12px;">
+                    <p class="text-xs font-semibold mb-2" style="color: var(--primary-600);">CONTACTO</p>
+                    <a href="tel:66043511" class="block text-xs font-semibold hover:opacity-70 transition" style="color: var(--primary-600);">6604-3511</a>
+                    <a href="tel:65300791" class="block text-xs font-semibold hover:opacity-70 transition" style="color: var(--primary-600);">6530-0791</a>
+                </div>
+
+                <!-- Profile Image -->
+                <div style="position: absolute; right: 20px; top: 20px; width: 160px;">
+                    <img src="https://cdn.builder.io/api/v1/image/assets%2F314cb8bfc754499db7cf7c4a6fcf61e9%2Fa713f013a22148edbf798c38e1f3fd23?format=webp&width=200" alt="Jamileth" class="profile-image">
+                </div>
+            </div>
+
+            <!-- DISC Section (Right Top) -->
+            <div class="card" style="padding: 20px;">
+                <p class="text-xs font-semibold mb-3" style="color: var(--primary-600);">PERFIL DISC</p>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                    <div>
+                        <p class="text-xs font-semibold mb-1" style="color: var(--primary-700);">Dominio</p>
+                        <div style="background: var(--primary-100); border-radius: 999px; overflow: hidden;">
+                            <div class="bar-fill" style="width: 0%;" data-width="32"></div>
+                        </div>
+                        <p class="text-xs mt-1 font-bold" style="color: var(--primary-600);">32%</p>
+                    </div>
+                    <div>
+                        <p class="text-xs font-semibold mb-1" style="color: var(--primary-700);">Influencia</p>
+                        <div style="background: var(--primary-100); border-radius: 999px; overflow: hidden;">
+                            <div class="bar-fill" style="width: 0%;" data-width="25"></div>
+                        </div>
+                        <p class="text-xs mt-1 font-bold" style="color: var(--primary-600);">25%</p>
+                    </div>
+                    <div>
+                        <p class="text-xs font-semibold mb-1" style="color: var(--primary-700);">Estabilidad</p>
+                        <div style="background: var(--primary-100); border-radius: 999px; overflow: hidden;">
+                            <div class="bar-fill" style="width: 0%;" data-width="25"></div>
+                        </div>
+                        <p class="text-xs mt-1 font-bold" style="color: var(--primary-600);">25%</p>
+                    </div>
+                    <div>
+                        <p class="text-xs font-semibold mb-1" style="color: var(--primary-700);">Cumplimiento</p>
+                        <div style="background: var(--primary-100); border-radius: 999px; overflow: hidden;">
+                            <div class="bar-fill" style="width: 0%;" data-width="18"></div>
+                        </div>
+                        <p class="text-xs mt-1 font-bold" style="color: var(--primary-600);">18%</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ficha Personal (Left Bottom) -->
+            <div class="card" style="padding: 20px;">
+                <p class="text-xs font-semibold mb-3" style="color: var(--primary-600);">FICHA PERSONAL</p>
+                <div class="text-xs leading-relaxed" style="color: var(--neutral-800); line-height: 1.4;">
+                    <p class="mb-1"><strong>Carrera:</strong> Lic. Publicidad</p>
+                    <p class="mb-1"><strong>Curso:</strong> Cámara reportaje</p>
+                    <p class="mb-1"><strong>Diplomado:</strong> Int. Emocional</p>
+                    <p class="mb-1"><strong>Bachiller:</strong> Comercio / Ciencia</p>
+                    <p class="mb-1"><strong>Pasión:</strong> Folclore panameño</p>
+                    <p class="mb-1"><strong>Hobby:</strong> Videojuegos</p>
+                </div>
+                <div style="background: var(--primary-50); padding: 12px; border-radius: 8px; border-left: 3px solid var(--primary-500); margin-top: 12px;">
+                    <p class="font-quote text-xs leading-relaxed" style="color: var(--primary-700); margin-bottom: 4px;">
+                        Si tienes un problema, y puedes definirlo, ya tienes la mitad resuelto.
+                    </p>
+                    <p class="text-xs" style="color: var(--primary-600);">Filosofía Personal</p>
+                </div>
+            </div>
+
+            <!-- Competencias (Right Bottom) -->
+            <div class="card" style="padding: 20px;">
+                <p class="text-xs font-semibold mb-3" style="color: var(--primary-600);">COMPETENCIAS</p>
+                <div class="competencia-row">
+                    <p class="text-xs font-semibold" style="color: var(--primary-700);">Toma de Decisiones</p>
+                    <span class="stat-badge">80%</span>
+                </div>
+                <div class="competencia-row">
+                    <p class="text-xs font-semibold" style="color: var(--primary-700);">Análisis & Pensamiento</p>
+                    <span class="stat-badge">90%</span>
+                </div>
+                <div class="competencia-row">
+                    <p class="text-xs font-semibold" style="color: var(--primary-700);">Liderazgo & Equipo</p>
+                    <span class="stat-badge">90%</span>
+                </div>
+                <div class="competencia-row">
+                    <p class="text-xs font-semibold" style="color: var(--primary-700);">Resiliencia</p>
+                    <span class="stat-badge">70%</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Valores Section -->
+        <div style="margin-top: 20px; display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px;">
+            <div class="card" style="padding: 16px; text-align: center;">
+                <p class="text-2xl mb-2">💎</p>
+                <p class="text-xs font-semibold mb-1" style="color: var(--primary-700);">Honestidad</p>
+                <p class="text-xs" style="color: var(--primary-600);">Transparencia y coherencia</p>
+            </div>
+            <div class="card" style="padding: 16px; text-align: center;">
+                <p class="text-2xl mb-2">🌿</p>
+                <p class="text-xs font-semibold mb-1" style="color: var(--primary-700);">Humildad</p>
+                <p class="text-xs" style="color: var(--primary-600);">Aprender de otros</p>
+            </div>
+            <div class="card" style="padding: 16px; text-align: center;">
+                <p class="text-2xl mb-2">🧭</p>
+                <p class="text-xs font-semibold mb-1" style="color: var(--primary-700);">Compromiso</p>
+                <p class="text-xs" style="color: var(--primary-600);">Metas y proyectos</p>
+            </div>
+            <div class="card" style="padding: 16px; text-align: center;">
+                <p class="text-2xl mb-2">💞</p>
+                <p class="text-xs font-semibold mb-1" style="color: var(--primary-700);">Solidaridad</p>
+                <p class="text-xs" style="color: var(--primary-600);">Ayudar y comunidad</p>
+            </div>
+            <div class="card" style="padding: 16px; text-align: center;">
+                <p class="text-2xl mb-2">🤝</p>
+                <p class="text-xs font-semibold mb-1" style="color: var(--primary-700);">Lealtad</p>
+                <p class="text-xs" style="color: var(--primary-600);">Principios y apoyo</p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Animate bars on load
+        window.addEventListener('load', () => {
+            document.querySelectorAll('[data-width]').forEach(el => {
+                el.style.width = el.getAttribute('data-width') + '%';
+            });
+        });
+    </script>
+</body>
+</html>

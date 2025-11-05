@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio - Jamileth Jackelinne</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-100: #F2F6FF;
+            --primary-200: #B6D0FF;
+            --primary-300: #79B1FF;
+            --primary-400: #3C98FE;
+            --primary-500: #0087FC;
+            --primary-600: #0076C7;
+            --primary-700: #005E91;
+            --primary-800: #00415C;
+            --primary-900: #001D26;
+            
+            --accent1-500: #C12D2D;
+            --accent2-500: #F5D547;
+            
+            --neutral-100: #FAFBFC;
+            --neutral-200: #EAEDF0;
+            --neutral-600: #959DA1;
+            --neutral-700: #6E7578;
+            --neutral-800: #484D4F;
+            --neutral-900: #222626;
+        }
+
+        * { font-weight: 333; }
+        body { font-family: 'Inter', sans-serif; background: var(--primary-50); }
+        .font-name { font-family: 'Inter', sans-serif; font-weight: 700; }
+
+        .header-sticky {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: white;
+            border-bottom: 1px solid var(--primary-100);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .project-card {
+            background: white;
+            border: 1px solid var(--primary-100);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary-300);
+            box-shadow: 0 12px 24px rgba(0, 135, 252, 0.12);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary-300), var(--primary-500));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 48px;
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .project-info {
+            padding: 16px;
+        }
+
+        .category-tab {
+            padding: 12px 24px;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .category-tab:hover {
+            color: var(--primary-700);
+        }
+
+        .category-tab.active {
+            border-bottom-color: var(--primary-500);
+            color: var(--primary-700);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 100;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 16px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(40px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .stat-badge {
+            background: var(--primary-500);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .grid {
+            animation: fadeIn 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header-sticky">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div>
+                <a href="index.html" class="font-name text-2xl font-bold" style="color: var(--primary-700);">Jamileth Jackelinne</a>
+                <p class="text-xs font-semibold" style="color: var(--primary-500);">PORTAFOLIO</p>
+            </div>
+            <nav class="flex gap-6">
+                <a href="index.html" class="text-sm font-semibold transition hover:opacity-70" style="color: var(--primary-700);">BUYER PERSONA</a>
+                <a href="chatbot.html" class="text-sm font-semibold transition hover:opacity-70" style="color: var(--primary-700);">CHATBOT</a>
+                <a href="panel/index.html" class="text-sm font-semibold transition hover:opacity-70" style="color: var(--accent1-500);">PANEL</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-6 py-8">
+        
+        <!-- Category Tabs -->
+        <div style="display: flex; gap: 0; border-bottom: 1px solid var(--primary-100); margin-bottom: 32px; overflow-x: auto;">
+            <button class="category-tab active" data-category="estrategias" style="color: var(--primary-700);">
+                Estrategias
+            </button>
+            <button class="category-tab" data-category="design" style="color: var(--neutral-600);">
+                Diseño / AI
+            </button>
+            <button class="category-tab" data-category="websites" style="color: var(--neutral-600);">
+                Websites
+            </button>
+            <button class="category-tab" data-category="varios" style="color: var(--neutral-600);">
+                Varios
+            </button>
+        </div>
+
+        <!-- Projects Grid -->
+        <div id="projectsGrid" class="grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px;">
+            <!-- Projects loaded dynamically -->
+        </div>
+
+        <!-- Empty State -->
+        <div id="emptyState" style="text-align: center; padding: 60px 20px; display: none;">
+            <p class="text-2xl font-bold mb-2" style="color: var(--neutral-800);">No hay proyectos</p>
+            <p class="text-sm" style="color: var(--neutral-600);">
+                <a href="panel/index.html" style="color: var(--primary-500); text-decoration: underline;">Crea tu primer proyecto en el panel</a>
+            </p>
+        </div>
+    </main>
+
+    <!-- Project Modal -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content" style="padding: 32px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <h2 id="modalTitle" class="font-name text-2xl" style="color: var(--primary-700);"></h2>
+                <button onclick="closeModal()" style="background: none; border: none; font-size: 24px; cursor: pointer; color: var(--neutral-600);">×</button>
+            </div>
+
+            <div id="modalImage" style="width: 100%; height: 300px; background: linear-gradient(135deg, var(--primary-300), var(--primary-500)); border-radius: 12px; margin-bottom: 20px; display: flex; align-items: center; justify-content: center; color: white; font-size: 64px; overflow: hidden;">
+            </div>
+
+            <div style="display: grid; gap: 16px;">
+                <div>
+                    <p class="text-xs font-semibold mb-2" style="color: var(--primary-600);">OBJETIVO</p>
+                    <p id="modalObjective" class="text-sm" style="color: var(--neutral-800);"></p>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                    <div>
+                        <p class="text-xs font-semibold mb-2" style="color: var(--primary-600);">FECHA</p>
+                        <p id="modalDate" class="text-sm font-semibold" style="color: var(--neutral-900);"></p>
+                    </div>
+                    <div>
+                        <p class="text-xs font-semibold mb-2" style="color: var(--primary-600);">CLASIFICACIÓN</p>
+                        <p id="modalClassification" class="text-sm font-semibold" style="color: var(--neutral-900);"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Database Manager
+        const DB = {
+            get: (key) => JSON.parse(localStorage.getItem(key) || '[]'),
+            set: (key, data) => localStorage.setItem(key, JSON.stringify(data)),
+            init: () => {
+                if (!localStorage.getItem('projects')) {
+                    const defaultProjects = [
+                        {
+                            id: 1,
+                            category: 'estrategias',
+                            title: 'Campaña Digital 2024',
+                            objective: 'Aumentar engagement en redes sociales',
+                            date: '2024-01-15',
+                            classification: 'Real',
+                            icon: '📊'
+                        },
+                        {
+                            id: 2,
+                            category: 'design',
+                            title: 'Identidad Visual Marca',
+                            objective: 'Crear sistema de diseño cohesivo',
+                            date: '2024-02-20',
+                            classification: 'Real',
+                            icon: '🎨'
+                        },
+                        {
+                            id: 3,
+                            category: 'websites',
+                            title: 'Portal Empresarial',
+                            objective: 'Sitio web responsive y performante',
+                            date: '2024-03-10',
+                            classification: 'Real',
+                            icon: '💻'
+                        },
+                        {
+                            id: 4,
+                            category: 'varios',
+                            title: 'Activación en Evento',
+                            objective: 'Experiencia interactiva en vivo',
+                            date: '2024-01-20',
+                            classification: 'Real',
+                            icon: '🎪'
+                        }
+                    ];
+                    DB.set('projects', defaultProjects);
+                }
+            }
+        };
+
+        // Initialize
+        DB.init();
+
+        let currentCategory = 'estrategias';
+        const grid = document.getElementById('projectsGrid');
+        const emptyState = document.getElementById('emptyState');
+
+        // Render projects
+        const renderProjects = () => {
+            const projects = DB.get('projects').filter(p => p.category === currentCategory);
+            grid.innerHTML = '';
+
+            if (projects.length === 0) {
+                grid.style.display = 'none';
+                emptyState.style.display = 'block';
+                return;
+            }
+
+            grid.style.display = 'grid';
+            emptyState.style.display = 'none';
+
+            projects.forEach(project => {
+                const card = document.createElement('div');
+                card.className = 'project-card';
+                card.innerHTML = `
+                    <div class="project-image">${project.icon}</div>
+                    <div class="project-info">
+                        <h3 class="font-name text-sm mb-2" style="color: var(--primary-700);">${project.title}</h3>
+                        <p class="text-xs mb-3" style="color: var(--neutral-700);">${project.objective.substring(0, 50)}...</p>
+                        <div style="display: flex; gap: 8px;">
+                            <span class="stat-badge">${project.date}</span>
+                            <span class="stat-badge" style="background: var(--primary-600);">${project.classification}</span>
+                        </div>
+                    </div>
+                `;
+                card.addEventListener('click', () => openModal(project));
+                grid.appendChild(card);
+            });
+        };
+
+        // Modal handlers
+        const openModal = (project) => {
+            document.getElementById('modalTitle').textContent = project.title;
+            document.getElementById('modalImage').textContent = project.icon;
+            document.getElementById('modalImage').style.fontSize = '64px';
+            document.getElementById('modalObjective').textContent = project.objective;
+            document.getElementById('modalDate').textContent = project.date;
+            document.getElementById('modalClassification').textContent = project.classification;
+            document.getElementById('projectModal').classList.add('active');
+        };
+
+        const closeModal = () => {
+            document.getElementById('projectModal').classList.remove('active');
+        };
+
+        // Category tabs
+        document.querySelectorAll('.category-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.category-tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                currentCategory = tab.getAttribute('data-category');
+                renderProjects();
+            });
+        });
+
+        // Close modal on background click
+        document.getElementById('projectModal').addEventListener('click', (e) => {
+            if (e.target === document.getElementById('projectModal')) closeModal();
+        });
+
+        // Initial render
+        renderProjects();
+    </script>
+</body>
+</html>
